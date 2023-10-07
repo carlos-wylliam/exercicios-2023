@@ -21,5 +21,5 @@ class Main {
     // Write your logic to save the output file below.
     print_r($data);
   }
-  
+
 }
