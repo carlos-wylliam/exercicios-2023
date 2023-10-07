@@ -5,7 +5,7 @@ namespace Chuva\Php\WebScrapping;
 error_reporting(E_ERROR | E_PARSE);
 
 /**
- * Runner for the Webscrapping exercice.
+ * Runner for the Webscraping exercise.
  */
 class Main {
 
@@ -18,8 +18,7 @@ class Main {
 
     $data = (new Scrapper())->scrap($dom);
 
-    // Write your logic to save the output file bellow.
+    // Write your logic to save the output file below.
     print_r($data);
   }
-   
 }
