@@ -1,7 +1,7 @@
 <?php
 
 namespace Chuva\Php\WebScrapping;
-
+error_reporting(E_ERROR | E_PARSE);
 /**
  * Runner for the Webscrapping exercice.
  */
