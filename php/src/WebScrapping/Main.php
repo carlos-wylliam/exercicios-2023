@@ -20,11 +20,11 @@ class Main {
 
     $idArray = [];
     $id = $dom->getElementsByTagName('div');
-    foreach($id as $ids){
-      if($ids->getAttribute('class') === 'volume-info') {
+    foreach ($id as $ids) {
+      if ($ids->getAttribute('class') === 'volume-info') {
         $idArray[] = $ids->textContent;
       }
-    }
+     }
     print_r($idArray);
     // Write your logic to save the output file below.
     print_r($data);
