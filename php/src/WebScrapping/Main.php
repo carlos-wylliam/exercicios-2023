@@ -35,6 +35,17 @@ class Main {
       }
     }
     print_r($titleArray);
+
+    $authorArray = [];
+    $authors = $dom->getElementsByTagName('div');
+    foreach ($authors as $author) {
+      if($author->getAttribute('class') === 'authors') {
+        $authorNames = explode(';', $author->textContent);
+        $cleanedAuhtorNames = array_map('trim', $authorNames);
+        $authorArray[] = $cleanedAuhtorNames;
+      }
+    }
+    print_r($authorArray);
     // Write your logic to save the output file below.
     print_r($data);
   }
