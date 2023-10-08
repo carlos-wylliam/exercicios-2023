@@ -26,6 +26,15 @@ class Main {
       }
     }
     print_r($idArray);
+
+    $titleArray = [];
+    $titles = $dom->getElementsByTagName('h4');
+    foreach ($titles as $title) {
+      if ($title->getAttribute('class') === 'my-xs paper-title') {
+        $titleArray[] = $title->textContent;
+      }
+    }
+    print_r($titleArray);
     // Write your logic to save the output file below.
     print_r($data);
   }
