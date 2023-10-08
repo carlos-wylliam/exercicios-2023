@@ -46,6 +46,15 @@ class Main {
       }
     }
     print_r($authorArray);
+
+    $typeArray = [];
+    $types = $dom->getElementsByTagName('div');
+    foreach ($types as $type) {
+      if ($type->getAttribute('class') === 'tags mr-sm') {
+        $typeArray[] = $type->textContent;
+      }
+    }
+    print_r($typeArray);
     // Write your logic to save the output file below.
     print_r($data);
   }
