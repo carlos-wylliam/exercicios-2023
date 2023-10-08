@@ -39,7 +39,7 @@ class Main {
     $authorArray = [];
     $authors = $dom->getElementsByTagName('div');
     foreach ($authors as $author) {
-      if($author->getAttribute('class') === 'authors') {
+      if ($author->getAttribute('class') === 'authors') {
         $authorNames = explode(';', $author->textContent);
         $cleanedAuhtorNames = array_map('trim', $authorNames);
         $authorArray[] = $cleanedAuhtorNames;
