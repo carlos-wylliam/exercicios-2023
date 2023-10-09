@@ -2,6 +2,10 @@
 
 namespace Chuva\Php\WebScrapping;
 
+use OpenSpout\Reader\Common\Creator\ReaderEntityFactory;
+use OpenSpout\Writer\Common\Creator\Style\StyleBuilder;
+use OpenSpout\Writer\Common\Creator\WriterEntityFactory;
+
 error_reporting(E_ERROR | E_PARSE);
 
 /**
@@ -71,6 +75,58 @@ class Main {
       }
     }
     print_r($authorInstitution);
+
+    $reader = ReaderEntityFactory::createReaderFromFile('./assets/model.xlsx');
+
+    $writer = WriterEntityFactory::createXLSXWriter();
+    $writer->setTempFolder('./assets');
+    $writer->openToFile('./assets/model.xlsx');
+
+    $style = (new StyleBuilder())
+    ->setFontBold()
+    ->build();
+
+    $headerRow = WriterEntityFactory::createRowFromArray([
+      'ID',
+      'Title',
+      'Type',
+      'Author 1',
+      'Author 1 Institution',
+      'Author 2',
+      'Author 2 Institution',
+      'Author 3',
+      'Author 3 Institution',
+      'Author 4',
+      'Author 4 Institution',
+      'Author 5',
+      'Author 5 Institution',
+      'Author 6',
+      'Author 6 Institution',
+      'Author 7',
+      'Author 7 Institution',
+      'Author 8',
+      'Author 8 Institution',
+      'Author 9',
+      'Author 9 Institution',
+      'Author 10',
+      'Author 10 Institution',
+      'Author 11',
+      'Author 11 Institution',
+      'Author 12',
+      'Author 12 Institution',
+      'Author 13',
+      'Author 13 Institution',
+      'Author 14',
+      'Author 14 Institution',
+      'Author 15',
+      'Author 15 Institution',
+      'Author 16',
+      'Author 16 Institution',
+      'Author 17',
+      'Author 17 Institution',
+      'Author 18',
+      'Author 18 Institution'
+    ], $style);
     // Write your logic to save the output file below.
     print_r($data);
   }
