@@ -59,19 +59,19 @@ class Main {
       }
     }
     print_r($typeArray);
-
+    
     $authorInstitution = [];
     $authorInstitutions = $dom->getElementsByTagName('div');
-    foreach ($authorInstitutions as $departments) {
-      if ($departments->getAttribute('class') === 'authors') {
-        $institution = $departments->getElementsByTagName('span');
+    foreach ($authorInstitutions as $departaments) {
+      if ($departaments->getAttribute('class') === 'authors') {
+        $institution = $departaments->getElementsByTagName('span');
         $authorInstitutionNames = [];
-        foreach ($institution as $element) {
-          if ($element->getAttribute('title') !== '') {
-            $authorInstitutionNames[] = $element->getAttribute('title');
-          }
-        }
-        $authorInstitution = $authorInstitutionNames;
+      foreach ($institution as $index) {
+        if ($index->getAttribute('title') !== '') {
+        $authorInstitutionNames[] = $index->getAttribute('title');
+       }
+      }
+      $authorInstitution[] = $authorInstitutionNames;
       }
     }
     print_r($authorInstitution);
@@ -127,6 +127,27 @@ class Main {
       'Author 18',
       'Author 18 Institution',
     ], $style);
+
+    $writer->addRow($headerRow);
+
+    for ($i = 0; $i < count($idArray); $i++) {
+      $authors = $authorArray[$i] ?? [];
+      $rowArray = [
+        $idArray[$i],
+        $titleArray[$i],
+        $typeArray[$i],
+      ];
+      for ($j = 0; $j < count($authors); $j++) {
+        $authorName = $authors[$j];
+        $authorInstitutionName = $authorInstitution[$i][$j] ?? '';
+
+        $rowArray[] = $authorName;
+        $rowArray[] = $authorInstitutionName;
+      }
+      $row = WriterEntityFactory::createRowFromArray($rowArray);
+      $writer->addRow($row);
+    };
+    $writer->close();
     // Write your logic to save the output file below.
     print_r($data);
   }
