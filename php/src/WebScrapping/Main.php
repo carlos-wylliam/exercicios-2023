@@ -66,12 +66,12 @@ class Main {
       if ($departaments->getAttribute('class') === 'authors') {
         $institution = $departaments->getElementsByTagName('span');
         $authorInstitutionNames = [];
-      foreach ($institution as $index) {
-        if ($index->getAttribute('title') !== '') {
-        $authorInstitutionNames[] = $index->getAttribute('title');
-       }
-      }
-      $authorInstitution[] = $authorInstitutionNames;
+        foreach ($institution as $index) {
+          if ($index->getAttribute('title') !== '') {
+          $authorInstitutionNames[] = $index->getAttribute('title');
+          }
+        }
+        $authorInstitution[] = $authorInstitutionNames;
       }
     }
     print_r($authorInstitution);
