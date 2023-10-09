@@ -59,7 +59,6 @@ class Main {
       }
     }
     print_r($typeArray);
-    
     $authorInstitution = [];
     $authorInstitutions = $dom->getElementsByTagName('div');
     foreach ($authorInstitutions as $departaments) {
@@ -68,7 +67,7 @@ class Main {
         $authorInstitutionNames = [];
         foreach ($institution as $index) {
           if ($index->getAttribute('title') !== '') {
-          $authorInstitutionNames[] = $index->getAttribute('title');
+            $authorInstitutionNames[] = $index->getAttribute('title');
           }
         }
         $authorInstitution[] = $authorInstitutionNames;
