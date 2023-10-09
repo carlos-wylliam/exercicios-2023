@@ -55,6 +55,22 @@ class Main {
       }
     }
     print_r($typeArray);
+
+    $authorInstitution = [];
+    $authorInstitutions = $dom->getElementsByTagName('div');
+    foreach ($authorInstitutions as $departments) {
+      if ($departments->getAttribute('class') === 'authors') {
+        $institution = $departments->getElementsByTagName('span');
+        $authorInstitutionNames = [];
+        foreach ($institution as $element) {
+          if ($element->getAttribute('title') !== '') {
+            $authorInstitutionNames[] = $element->getAttribute('title');
+          }
+        }
+        $authorInstitution = $authorInstitutionNames;
+      }
+    }
+    print_r($authorInstitution);
     // Write your logic to save the output file below.
     print_r($data);
   }
