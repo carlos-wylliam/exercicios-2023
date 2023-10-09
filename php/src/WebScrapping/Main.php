@@ -83,8 +83,8 @@ class Main {
     $writer->openToFile('./assets/model.xlsx');
 
     $style = (new StyleBuilder())
-    ->setFontBold()
-    ->build();
+      ->setFontBold()
+      ->build();
 
     $headerRow = WriterEntityFactory::createRowFromArray([
       'ID',
@@ -125,7 +125,7 @@ class Main {
       'Author 17',
       'Author 17 Institution',
       'Author 18',
-      'Author 18 Institution'
+      'Author 18 Institution',
     ], $style);
     // Write your logic to save the output file below.
     print_r($data);
