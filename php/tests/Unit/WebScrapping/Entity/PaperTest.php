@@ -10,7 +10,6 @@ use PHPUnit\Framework\TestCase;
  * Tests requirements for Paper.
  */
 class PaperTest extends TestCase {
-
   /**
    * Tests construct().
    */

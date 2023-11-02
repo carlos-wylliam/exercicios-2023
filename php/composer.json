@@ -6,7 +6,8 @@
     "autoload": {
         "psr-4": {
             "Chuva\\Php\\": "src/",
-            "Chuva\\Tests\\": "tests/"
+            "Chuva\\Tests\\": "tests/",
+            "Chuva\\Php\\WebScrapping\\": "WebScrapping/Entity/PaperTest.php" 
         }
     },
     "minimum-stability": "dev",
