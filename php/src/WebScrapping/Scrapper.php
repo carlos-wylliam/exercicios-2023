@@ -4,7 +4,6 @@ namespace Chuva\Php\WebScrapping;
 
 use Chuva\Php\WebScrapping\Entity\Paper;
 use Chuva\Php\WebScrapping\Entity\Person;
-use DOMXPath;
 
 /**
  * Does the scrapping of a webpage.
@@ -15,7 +14,7 @@ class Scrapper {
    * Loads paper information from the HTML and returns the array with the data.
    */
   public function scrap(\DOMDocument $dom): array {
-    $xpath = new DOMXPath($dom);
+    $xpath = new \DOMXPath($dom);
 
     $papers = [];
 
@@ -29,7 +28,7 @@ class Scrapper {
         $institution = $authorSpan->getAttribute('title');
         $authorName = $authorSpan->textContent;
         $persons[] = new Person($authorName, $institution);
-      }  
+      }
       $papers[] = new Paper($id, $title, $type, $persons);
     }
 
