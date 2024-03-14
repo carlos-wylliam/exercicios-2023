@@ -25,15 +25,15 @@ class Scrapper {
       $type = $xpath->query('div/div[contains(@class, "tags mr-sm")]', $value)->item(0)->textContent;
       $persons = [];
 
-            foreach ($xpath->query('div[contains(@class, "authors")]/span', $value) as $authorSpan) {
-                $institution = $authorSpan->getAttribute('title');
-                $authorName = $authorSpan->textContent;
-                $persons[] = new Person($authorName, $institution);
-            }
-      
-            $papers[] = new Paper($id, $title, $type, $persons);
-        }
-
-        return $papers;
+      foreach ($xpath->query('div[contains(@class, "authors")]/span', $value) as $authorSpan) {
+        $institution = $authorSpan->getAttribute('title');
+        $authorName = $authorSpan->textContent;
+        $persons[] = new Person($authorName, $institution);
+      }  
+      $papers[] = new Paper($id, $title, $type, $persons);
     }
-}
+
+    return $papers;
+    }
+
+ }
